@@ -1,0 +1,80 @@
+html{
+    background-color: azure;
+}
+body{
+    background-color: black;
+}
+h1{
+    color:rgb(125,125,125);
+    font-family:'comic sans';
+}
+nav {
+    color: #a0348a;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    font-size: large;
+}
+
+nav a {
+    color: #a0312a;
+    text-decoration: none;
+}
+
+.grid-container{
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background-color: #411c39;
+      padding: 10px;
+}
+
+.item{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.item2{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-column: span 2;
+}
+
+.item3{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-column: span 3;
+}
+
+.item4{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-column: span 4;
+}
