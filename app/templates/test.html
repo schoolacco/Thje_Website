@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale-1.0">
+    <head>
+        {% if title %}
+        <title>{{ title }} - Website</title>
+        {% else %}
+        <title>Welcome to the Website!</title>
+        {% endif %}
+    </head>
+    <body>
+        <h1> Hello, {{ user.username }}!</h1>
+    </body>
+</html>
