@@ -35,6 +35,12 @@
             <a href="https://gosford-high-school.gitbook.io/10-computing-tech/web-apps/2-html-and-css-lessons/html-lessons/video-tutorials">HTML Tutorials</br><br></a>
             <img src="../static/Images/placeholder.png", alt="Picture", style="width:500px; height:500px;">
             <hr>
+            {% block content %}
+             <h1>Hi, {{current_user.username}}!</h1>
+             {% for post in posts %}
+             <div><p>{{post.author.username}} says: <b>{{post.body}}</b></p></div>
+             {% endfor %}
+            {% endblock %}
           </div>
         </div>
     </body>
