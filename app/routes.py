@@ -32,8 +32,7 @@ def contact():
 def test():
     user = {'username': 'real user'}
     return render_template('test.html', title= 'Test', user=user)
-@app.route('/login')
-@app.route('/login.html', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -49,7 +48,7 @@ def login():
         if not next_page or urlsplit(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('login.html', form=form, title="Sign In")
+    return render_template('login.html', title="Sign In", form=form)
 @app.route('/logout')
 def logout():
     logout_user()
@@ -76,7 +75,7 @@ def user(username):
         {'author': user, 'body': 'test 2'}
     ]
     return render_template('user.html', user=user, posts=posts)
-@app.route('/edit_profile', method=['GET', 'POST'])
+@app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
     form = EditProfileForm()
