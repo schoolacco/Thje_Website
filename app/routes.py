@@ -14,6 +14,9 @@ def before_request():
         db.session.commit()
 
 @app.route('/')
+@app.route('/intro')
+def introduction():
+    return render_template('intro.html')
 @app.route('/index')
 @app.route('/index.html')
 @login_required
