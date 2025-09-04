@@ -1,11 +1,31 @@
-// No idea what this does yet, just took it from search
-
+const num = document.getElementById('Num');
 document.getElementById('upArrow').addEventListener('click', function() {
-    console.log('Up arrow clicked!');
-    alert('Something is meant to happen here.'); // Wow, I know basic javascript
+    let num_content = num.textContent
+    let number = Number(num_content)
+    let n = number + 1
+    num.textContent = n
 });
 
 document.getElementById('downArrow').addEventListener('click', function() {
-    console.log('Down arrow clicked!');
-    alert('Something else is meant to happen here.');
+    let num_content = num.textContent
+    let number = Number(num_content)
+    let n = number - 1
+    if (n < 0) {
+        n = 0
+    }
+    num.textContent = n
+});
+document.getElementById('submit').addEventListener('click', function() {
+   sessionStorage.setItem('friend', Number(num.textContent))
+});
+
+document.getElementById('up2').addEventListener('click', function(){
+    const store = sessionStorage.getItem('friend')
+    let num_content = num.textContent
+    let number = Number(num_content)
+    let n = number + 1
+    if (n > store) {
+        n = store
+    }
+    num.textContent = n
 });

@@ -17,6 +17,9 @@ def before_request():
 @app.route('/intro')
 def introduction():
     return render_template('intro.html')
+@app.route('/intro_p2')
+def intro_2():
+    return render_template('intro_2.html')
 @app.route('/index')
 @app.route('/index.html')
 @login_required
