@@ -14,8 +14,7 @@ class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    #password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')]) // Didn't seem to work for some reason although regular password worked fine
     submit = SubmitField('Register')
     def validate_username(self, username):
         user  = db.session.scalar(sa.select(User).where(
