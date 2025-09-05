@@ -21,7 +21,7 @@ document.getElementById('submit').addEventListener('click', function() {
 });
 
 window.onload = function() {
-      alert(localStorage.getItem('friend'))
+      console.log(localStorage.getItem('friend'))
 };
 document.getElementById('up_arrow').addEventListener('click', function(){
     const stored_value = Number(localStorage.getItem('friend'));
