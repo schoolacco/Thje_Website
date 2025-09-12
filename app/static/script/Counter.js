@@ -1,4 +1,8 @@
 const num = document.getElementById('Num');
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('friend') != null && localStorage.getItem('close') != null){
+        window.location.href='http://127.0.0.1:5000/index'
+}});
 document.getElementById('upArrow').addEventListener('click', function() {
     let num_content = num.textContent
     let number = Number(num_content)
@@ -21,8 +25,13 @@ document.getElementById('downArrow').addEventListener('click', function() {
     num.textContent = n
 });
 document.getElementById('submit').addEventListener('click', function() {
-   localStorage.setItem('friend', Number(num.textContent))
-   window.location.href='http://127.0.0.1:5000/intro_p2'
+   if (localStorage.getItem('friend') == null){
+     localStorage.setItem('friend', Number(num.textContent))
+     window.location.href='http://127.0.0.1:5000/intro_p2'}
+   else {
+     localStorage.setItem('close', Number(num.textContent))
+     window.location.href='http://127.0.0.1:5000/index'
+   }
 });
 
 window.onload = function() {

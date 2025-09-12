@@ -1,0 +1,1 @@
+document.getElementById('Text').textContent = localStorage.getItem('friend')
