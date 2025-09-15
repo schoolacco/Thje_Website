@@ -1,3 +1,6 @@
+html{
+    background-color: rgb(90, 90, 90);
+}
 
 h1{
    color: white;
@@ -8,18 +11,99 @@ p{
    position: absolute
 }
 
+nav {
+    color: #000000;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    font-size: large;
+}
+
+nav a {
+    color: #3a3a3a;
+    text-decoration: none;
+}
+
+.grid-container{
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background-color: #000000;
+      padding: 10px;
+}
+
+.item{
+    background-color: rgba(91, 91, 91, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.item2{
+    background-color: rgba(90, 90, 90, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-column: span 2;
+}
+
+.item3{
+    background-color: rgba(92, 92, 92, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-column: span 3;
+}
+
+.item4{
+    background-color: rgba(94, 94, 94, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-column: span 4;
+}
+
 
 .back {
-    background-image: url('../Images/static.gif');
-    background-size: cover; 
-    background-repeat: repeat; 
-    background-position: center center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.back::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('../Images/static.gif');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1; /* Behind text hopefully... */
 }
