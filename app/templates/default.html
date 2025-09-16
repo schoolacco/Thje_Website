@@ -12,14 +12,12 @@
           <div class="item">
             <nav>
                 <ul>
-                    <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
-                    <li><a href="/edit_profile">Edit Your Profile</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    <li>To do: add more features</li>
                 </ul>
             </nav>
           </div>
           <div class="item2">
-            <p>Nothing of interest yet :)</p>
+            <p>Nothing here yet...</p>
           </div>
           <div class="item3">
             <!--Content Section-->
@@ -29,12 +27,7 @@
             <img src="../static/Images/placeholder.png", alt="Picture", style="width:500px; height:500px;">
             <hr>
             <script src="../static/script/text.js"></script>
-            {% block content %}
-             <h1>Hi, {{current_user.username}}! Just remember, if nothing else, you aren't the only one who is alone.</h1>
-             {% for post in posts %}
-             <div><p>{{post.author.username}} says: <b>{{post.body}}</b></p></div>
-             {% endfor %}
-            {% endblock %}
+            <p>Just know, you aren't alone in your struggles, there are others like you, you are never truly alone, no matter what anyone else tells you, because someone out there cares.</p>
           </div>
         </div>
     </body>

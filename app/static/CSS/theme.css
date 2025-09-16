@@ -85,7 +85,7 @@ nav a {
 
 
 .back {
-  position: relative;
+  position: relative; /* I don't understand most of this other than from the guides that VS-Code/An Extension I have gives me*/
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -106,5 +106,5 @@ nav a {
   background-position: center center;
   filter: blur(8px);
   -webkit-filter: blur(8px);
-  z-index: -1; /* Behind text hopefully... */
+  z-index: -1; /* Puts it behind main content I belive */
 }

@@ -77,10 +77,15 @@ def register():
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.username == username ))
     posts = [
-        {'author': user, 'body': 'test 1'},
-        {'author': user, 'body': 'test 2'}
+        {'author': user, 'body': 'Feature implemented in future'},
+        {'author': user, 'body': 'Feature implemented in future'}
     ]
-    return render_template('user.html', user=user, posts=posts)
+    return render_template('user.html', user=user, posts=posts, title=username)
+@app.route('/reminder')
+def reminder():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    return render_template('default.html')
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():

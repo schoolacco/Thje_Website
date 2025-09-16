@@ -13,7 +13,7 @@
     <body>
         <h1> Hello! </h1>
         <div>
-            Microblog:
+            Index:
             <a href="{{ url_for('index') }}">Home</a>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
