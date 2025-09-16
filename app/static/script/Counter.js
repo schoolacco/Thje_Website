@@ -35,5 +35,13 @@ document.getElementById('submit').addEventListener('click', function() {
 });
 
 window.onload = function() {
-      console.log(localStorage.getItem('friend'))
+      if (localStorage.getItem('friend') == null && localStorage.getItem('close') == null){
+        window.location.href="https://127.0.0.1:5000/intro"
+      }
+      else if (localStorage.getItem('close') == null){
+        window.location.href="https://127.0.0.1:5000/intro_p2"
+      }
+      else {
+        window.location.href="https://127.0.0.1:5000/index"
+      }
 };

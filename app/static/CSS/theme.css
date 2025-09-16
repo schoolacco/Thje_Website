@@ -1,14 +1,15 @@
 html{
     background-color: rgb(90, 90, 90);
+    height: 100%
 }
 
 h1{
    color: white;
-   position: absolute
+   position: relative
 }
 p{
    color: grey;
-   position: absolute
+   position: relative
 }
 
 nav {
