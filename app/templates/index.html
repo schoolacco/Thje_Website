@@ -30,9 +30,9 @@
             <hr>
             <script src="../static/script/text.js"></script>
             {% block content %}
-             <h1>Hi, {{current_user.username}}! Just remember, if nothing else, you aren't the only one who is alone.</h1>
+             <h1>Hi, {{current_user.username}}! Nice to see you, just know you aren't alone :).</h1>
              {% for post in posts %}
-             <div><p>{{post.author.username}} says: <b>{{post.body}}</b></p></div>
+             <div><p>A User says: <b>{{post.body}}</b></p></div>
              {% endfor %}
             {% endblock %}
           </div>

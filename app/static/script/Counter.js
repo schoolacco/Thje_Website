@@ -35,13 +35,10 @@ document.getElementById('submit').addEventListener('click', function() {
 });
 
 window.onload = function() {
-      if (localStorage.getItem('friend') == null && localStorage.getItem('close') == null){
-        window.location.href="https://127.0.0.1:5000/intro"
+      if (localStorage.getItem('friend') != null && localStorage.getItem('close') == null && window.location.href != "http://127.0.0.1:5000/intro_p2"){
+        window.location.href="http://127.0.0.1:5000/intro_p2"
       }
-      else if (localStorage.getItem('close') == null){
-        window.location.href="https://127.0.0.1:5000/intro_p2"
-      }
-      else {
-        window.location.href="https://127.0.0.1:5000/index"
+      else if (localStorage.getItem('friend') != null && localStorage.getItem('close') != null) {
+        window.location.href="http://127.0.0.1:5000/index"
       }
 };
