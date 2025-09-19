@@ -4,7 +4,7 @@ let result = null
 if (friend != 0 && close_f != 0){
     result = `${Math.round((close_f/friend)*100)}%, close friends are valuable :D appreciate them.`
 }
-else if (close_f == 0){
+else if (close_f == 0 && friend != 0){
     result = `${friend} friends, yet you consider none of them as close, that's an understandable issue, there are some people you may like to talk to perhaps but would not see them as a proper friend. Perhaps one or many of them will become closer to you one day, or maybe a close friend will come from somewhere else entirely, no matter, you aren't truly alone.`
 }
 else {

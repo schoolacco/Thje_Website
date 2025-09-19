@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en-AU"; class="back">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale-1.0">
+        <meta name="viewport" content="width-device-width, initial-scale=0.75, maximum-scale=0.75">
         <title>Home</title>
         <link rel="stylesheet" href="../static/CSS/theme.css">
     </head>
-    <body style="text-align:center"; class="back">  
+    <body style="text-align:center">
         <div class="grid-container">
           <!--Navigation Section-->
           <div class="item">
@@ -26,15 +26,14 @@
             <p title="And so you are here..."; id="Text">
             </p>
             <hr>
-            <img src="../static/Images/placeholder.png", alt="Picture", style="width:500px; height:500px;">
+            <img src="../static/Images/Loneliness.png", alt="Picture", style="width:500px; height:500px;">
             <hr>
             <script src="../static/script/text.js"></script>
-            {% block content %}
              <h1>Hi, {{current_user.username}}! Nice to see you, just know you aren't alone :).</h1>
-             {% for post in posts %}
-             <div><p>A User says: <b>{{post.body}}</b></p></div>
-             {% endfor %}
-            {% endblock %}
+             <!-- {% for post in posts %} -->
+             <!--<div><p>A User says: <b>{{post.body}}</b></p></div>-->
+             <!--{% endfor %}-->
+             <!--Features does not exist, hence (for now) the section is redundant-->
           </div>
         </div>
     </body>

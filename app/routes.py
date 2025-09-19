@@ -25,11 +25,6 @@ def intro_2():
 @login_required
 def index():
     return render_template('index.html')
-@app.route('/test')
-@app.route('/test.html')
-def test():
-    user = {'username': 'real user'}
-    return render_template('test.html', title= 'Test', user=user)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
