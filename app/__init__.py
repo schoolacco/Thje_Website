@@ -14,10 +14,10 @@ from logging.handlers import RotatingFileHandler
 import os
 
 if not app.debug:
-    if not os.path.exists('logs'):
+    if not os.path.exists('logs'): # If directory does not exist
         os.mkdir('logs')
     file_handler = RotatingFileHandler('logs/errors.log', maxBytes=10240,
-                                       backupCount=10)
+                                       backupCount=10) # Log in file
     file_handler.setFormatter(logging.Formatter(
         '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))
     file_handler.setLevel(logging.INFO)
@@ -26,4 +26,4 @@ if not app.debug:
     app.logger.setLevel(logging.INFO)
     app.logger.info('Site startup')
 
-from app import routes, models
+from app import routes, models # I don't know if this is a necessity or if it was to be used in future.

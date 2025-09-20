@@ -6,12 +6,13 @@ from urllib.parse import urlsplit
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from app.models import User
 from datetime import datetime, timezone
-
-@app.before_request
+visited = False
+# Time to see how much I understand of Flask from the mega tutorial
+@app.before_request # I believe this just causes it to happen before anything else
 def before_request():
-    if current_user.is_authenticated:
-        current_user.last_seen = datetime.now(timezone.utc)
-        db.session.commit()
+    if current_user.is_authenticated: # Is the user logged in via flask_login
+        current_user.last_seen = datetime.now(timezone.utc) # Set last seen to current date.
+        db.session.commit() # Commit to db
 
 @app.route('/')
 @app.route('/intro')
@@ -27,24 +28,27 @@ def index():
     return render_template('index.html')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    global visited
     if current_user.is_authenticated:
         return redirect(url_for('index'))
+    elif visited == False: # Basic python hopefully working
+        return redirect(url_for('reminder'))
     form = LoginForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit(): # If the form is properly submitted
         user = db.session.scalar(
-            sa.select(User).where(User.username == form.username.data))
+            sa.select(User).where(User.username == form.username.data)) # Check data
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            flash('Invalid username or password') # Error message
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page or urlsplit(next_page).netloc != '':
+        next_page = request.args.get('next') # Grab next page
+        if not next_page or urlsplit(next_page).netloc != '': #Default for failure
             next_page = url_for('index')
         return redirect(next_page)
     return render_template('login.html', title="Sign In", form=form)
 @app.route('/logout')
 def logout():
-    logout_user()
+    logout_user() # Self explanatory
     return redirect(url_for('index'))
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -64,14 +68,16 @@ def register():
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.username == username ))
     posts = [
-        {'author': user, 'body': 'Feature implemented in future'},
+        {'author': user, 'body': 'Feature implemented in future'}, #Placeholder
         {'author': user, 'body': 'Feature implemented in future'}
     ]
     return render_template('user.html', user=user, posts=posts, title=username)
 @app.route('/reminder')
 def reminder():
+    global visited
     if current_user.is_authenticated:
         return redirect(url_for('index'))
+    visited = True
     return render_template('default.html')
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required

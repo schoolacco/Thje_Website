@@ -7,7 +7,7 @@ from flask_login import UserMixin
 from app import db, login
 from hashlib import md5
 class User(UserMixin, db.Model):
-    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    id: so.Mapped[int] = so.mapped_column(primary_key=True) #I believe all of these set up the sql database
     username: so.Mapped[str] = so.mapped_column(sa.String(64), index=True, unique=True)
     
     email: so.Mapped[str] = so.mapped_column(sa.String(120), index=True, unique=True)
@@ -22,7 +22,7 @@ class User(UserMixin, db.Model):
         default = lambda: datetime.now(timezone.utc))
 
     def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
+        self.password_hash = generate_password_hash(password) #Has the password via werkzeug
     
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
@@ -30,8 +30,8 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
     def avatar(self, size):
-        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
-        return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest() # Set avatar via email
+        return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}' #Return icon
 class Post(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     body: so.Mapped[str] = so.mapped_column(sa.String(140))
